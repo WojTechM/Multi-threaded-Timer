@@ -11,4 +11,12 @@ class UserInput {
     boolean isExitRequest() {
         return input.equalsIgnoreCase("exit");
     }
+
+    boolean isStartRequest() {
+        return input.toLowerCase().startsWith("start");
+    }
+
+    String getTimerName() {
+        return input.split(" ")[1];
+    }
 }
