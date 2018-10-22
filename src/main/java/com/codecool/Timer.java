@@ -28,7 +28,11 @@ public class Timer implements Runnable {
         return isRunning;
     }
 
-    public void toggleTimer() {
-        isRunning = !isRunning;
+    public void pause() {
+        isRunning = false;
+    }
+
+    public void unpause() {
+        isRunning = true;
     }
 }
