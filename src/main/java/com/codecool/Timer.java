@@ -9,8 +9,11 @@ public class Timer implements Runnable {
     public void run() {
         try {
             while (!Thread.currentThread().isInterrupted()) {
-                Thread.sleep(1000);
-                secondsPassed++;
+                if (isRunning) {
+                    Thread.sleep(1000);
+                    secondsPassed++;
+                    System.out.println(secondsPassed);
+                }
             }
         } catch (InterruptedException e) {
             throw new RuntimeException("Timer thread interrupted.");
@@ -19,6 +22,10 @@ public class Timer implements Runnable {
 
     public int getSecondsPassed() {
         return secondsPassed;
+    }
+
+    public boolean isRunning() {
+        return isRunning;
     }
 
     public void toggleTimer() {
