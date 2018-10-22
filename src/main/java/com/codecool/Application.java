@@ -1,8 +1,10 @@
 package com.codecool;
 
-public class App {
+public class Application {
 
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+    private boolean isAppRunning = true;
+
+    public void run() {
+        // TODO
     }
 }
