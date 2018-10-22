@@ -21,27 +21,23 @@ public class Timer implements Runnable {
         }
     }
 
-    public int getSecondsPassed() {
+    int getSecondsPassed() {
         return secondsPassed;
     }
 
-    public boolean isRunning() {
-        return isRunning;
-    }
-
-    public void pause() {
+    void pause() {
         isRunning = false;
     }
 
-    public void unpause() {
+    void unpause() {
         isRunning = true;
     }
 
-    public long getId() {
+    long getId() {
         return Thread.currentThread().getId();
     }
 
-    public void interrupt() {
+    void interrupt() {
         thread.interrupt();
     }
 }
