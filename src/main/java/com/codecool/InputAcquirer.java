@@ -2,7 +2,7 @@ package com.codecool;
 
 import java.util.Scanner;
 
-class InputManager {
+class InputAcquirer {
 
     UserInput getString() {
         Scanner scanner = new Scanner(System.in);
