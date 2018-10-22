@@ -7,10 +7,17 @@ class Application {
 
     private boolean isAppRunning = true;
     private Map<String, Timer> timers = new HashMap<>();
+    private final InputAcquirer inputAcquirer;
+    private final TimersDisplay display;
+
+    public Application(InputAcquirer input, TimersDisplay display) {
+        this.inputAcquirer = input;
+        this.display = display;
+    }
 
     void run() {
         while (isAppRunning) {
-            UserInput input = InputManager.getString();
+            UserInput input = inputAcquirer.getString();
             if (input.isExitRequest()) {
                 exit();
             } else if (input.isStartRequest()) {
