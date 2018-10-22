@@ -15,6 +15,8 @@ class Application {
                 exit();
             } else if (input.isStartRequest()) {
                 handleStartRequest(input);
+            } else if (input.isPauseRequest()) {
+                handlePauseRequest(input);
             }
         }
     }
@@ -28,6 +30,15 @@ class Application {
         }
     }
 
+    private void handlePauseRequest(UserInput input) {
+        String timerName = input.getTimerName();
+        if (timers.containsKey(timerName)) {
+            pauseTimer(timerName);
+        } else {
+            System.out.println("No such timer.");
+        }
+    }
+
     private void createTimer(String timerName) {
         Timer timer = new Timer();
         Thread thread = new Thread(timer);
@@ -37,9 +48,12 @@ class Application {
 
     private void unpauseTimer(String timerName) {
         Timer timer = timers.get(timerName);
-        if (!timer.isRunning()) {
-            timer.toggleTimer();
-        }
+        timer.unpause();
+    }
+
+    private void pauseTimer(String timerName) {
+        Timer timer = timers.get(timerName);
+        timer.pause();
     }
 
     private void exit() {
