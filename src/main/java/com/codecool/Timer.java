@@ -12,7 +12,6 @@ public class Timer implements Runnable {
                 if (isRunning) {
                     Thread.sleep(1000);
                     secondsPassed++;
-                    System.out.println(secondsPassed);
                 }
             }
         } catch (InterruptedException e) {
@@ -34,5 +33,9 @@ public class Timer implements Runnable {
 
     public void unpause() {
         isRunning = true;
+    }
+
+    public long getId() {
+        return Thread.currentThread().getId();
     }
 }
