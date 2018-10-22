@@ -71,5 +71,10 @@ class Application {
 
     private void exit() {
         isAppRunning = false;
+        display.displayTimers(timers);
+        for (String key : timers.keySet()) {
+            Timer timer = timers.get(key);
+            timer.interrupt();
+        }
     }
 }
