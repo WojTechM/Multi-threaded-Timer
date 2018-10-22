@@ -23,4 +23,8 @@ class UserInput {
     boolean isPauseRequest() {
         return input.toLowerCase().startsWith("stop");
     }
+
+    boolean isDisplayRequest() {
+        return input.equalsIgnoreCase("check");
+    }
 }
