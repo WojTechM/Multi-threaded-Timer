@@ -19,4 +19,8 @@ class UserInput {
     String getTimerName() {
         return input.split(" ")[1];
     }
+
+    boolean isPauseRequest() {
+        return input.toLowerCase().startsWith("stop");
+    }
 }
