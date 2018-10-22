@@ -4,18 +4,20 @@ public class Timer implements Runnable {
 
     private int secondsPassed = 0;
     private boolean isRunning = true;
+    private Thread thread;
 
     @Override
     public void run() {
         try {
-            while (!Thread.currentThread().isInterrupted()) {
+            thread = Thread.currentThread();
+            while (!thread.isInterrupted()) {
                 if (isRunning) {
                     Thread.sleep(1000);
                     secondsPassed++;
                 }
             }
         } catch (InterruptedException e) {
-            throw new RuntimeException("Timer thread interrupted.");
+            // Thread stopped
         }
     }
 
@@ -37,5 +39,9 @@ public class Timer implements Runnable {
 
     public long getId() {
         return Thread.currentThread().getId();
+    }
+
+    public void interrupt() {
+        thread.interrupt();
     }
 }
