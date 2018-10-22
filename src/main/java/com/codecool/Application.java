@@ -24,6 +24,8 @@ class Application {
                 handleStartRequest(input);
             } else if (input.isPauseRequest()) {
                 handlePauseRequest(input);
+            } else if (input.isDisplayRequest()) {
+                handleDisplay();
             }
         }
     }
@@ -61,6 +63,10 @@ class Application {
     private void pauseTimer(String timerName) {
         Timer timer = timers.get(timerName);
         timer.pause();
+    }
+
+    private void handleDisplay() {
+        display.displayTimers(timers);
     }
 
     private void exit() {
