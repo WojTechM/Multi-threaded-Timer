@@ -34,7 +34,7 @@ public class Timer implements Runnable {
     }
 
     long getId() {
-        return Thread.currentThread().getId();
+        return thread.getId();
     }
 
     void interrupt() {
